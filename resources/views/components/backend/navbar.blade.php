@@ -10,6 +10,7 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <x-backend.navlink href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">Dashboard</x-backend.navlink>
               <x-backend.navlink href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.index')">Categories</x-backend.navlink>
+              <x-backend.navlink href="{{ route('admin.products.index') }}" :active="request()->routeIs('admin.products.index')">Products</x-backend.navlink>
             </div>
           </div>
         </div>

@@ -25,8 +25,6 @@ class Category extends Model
                     ->orWhere('slug', 'like', '%' . $search . '%')
             )
         );
-
-       
     }
 
 }

@@ -10,8 +10,6 @@ use Illuminate\Validation\Rule;
 class CategoryController extends Controller
 {
     public function index() {
-
-        // dd(request(['search']));
         $categories = Category::latest()->filter(
             request(['search'])
         )->withCount('products')->paginate(5);
@@ -20,6 +18,7 @@ class CategoryController extends Controller
             'categories' => $categories
         ]);
     }
+    
     public function create() {
         return view('admin.categories.create');
     }
@@ -27,9 +26,8 @@ class CategoryController extends Controller
     public function store(Request $request) {
         $attributes = $request->validate([
             'name' => 'required|string|min:3|max:255',
-            'slug' => 'required|string|min:3|max:255|unique:categories,slug'
+            'slug' => 'required|string|min:3|max:255|unique:categories,slug',
         ]);
-
         Category::create($attributes);
 
         return redirect()->route('admin.categories.index')->with('success', 'New Category Added!');

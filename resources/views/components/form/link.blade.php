@@ -8,6 +8,8 @@ $warning = 'uppercase inline-flex justify-center py-2 px-4 border border-transpa
 
 $danger = 'uppercase inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500';
 
+$default = 'uppercase inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-black hover:bg-black hover:text-white focus:outline-none';
+
 // if ($active) $classes .= ' bg-blue-500 text-white';
 
 
@@ -29,7 +31,7 @@ switch ($btn) {
         break;
     
     default:
-        $classes = $primary;
+        $classes = $default;
         break;
 }
 @endphp
