@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>August Shop</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
@@ -16,8 +17,8 @@
   
     <header class="bg-white shadow">
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between align-middle">
-        <x-form.link href="{{url()->previous()}}" :btn="'default'"> <- Back</x-form.link>
-        <h1 class="text-3xl font-bold text-gray-900">
+        <x-form.link href="{{url()->previous()}}" :btn="'default'" style="display: block"> <- Back</x-form.link>
+        <h1 class="md:text-3xl font-bold text-gray-900">
           @yield('title')
         </h1>
         <div>
