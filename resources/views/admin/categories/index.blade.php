@@ -10,11 +10,14 @@
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg space-y-6">
                     <div class="flex justify-end align-middle">
-                        <form action="{{ route('admin.categories.index') }}" method="GET">
-                            <div class="mr-14">
+                        <div>
+                            <form action="{{ route('admin.categories.index') }}" method="GET">
                                 <input type="text" name="search" value="{{ request('search') }}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 sm:text-sm border border-gray-300 rounded-md">
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+                        <div class="mr-2 pt-1">
+                            <x-form.link href="{{route('admin.categories.index')}}" :btn="'default'">Reset</x-form.link>
+                        </div>
                     </div>
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
@@ -55,7 +58,7 @@
                                     <form action="{{route('admin.categories.destroy', $category->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="uppercase inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
+                                        <button class="uppercase inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-xs font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
                                     </form>
                                 </td>
                             </tr>

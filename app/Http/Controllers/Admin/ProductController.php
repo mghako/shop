@@ -49,6 +49,7 @@ class ProductController extends Controller
         $attributes = $request->validate([
             'name' => 'required|string',
             'slug' => ['required', Rule::unique('products', 'slug')->ignore($product)],
+            'category_id' => ['required', Rule::exists('categories', 'id')]
         ]);
         $product->update($attributes);
 
