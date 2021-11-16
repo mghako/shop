@@ -18,7 +18,7 @@ class LoginController extends Controller
         ]);
         if(auth()->attempt($credentials)) {
             session()->regenerate();
-            return redirect()->route('home')->with('success', 'Login Success !');
+            return redirect()->route('dashboard')->with('success', 'Login Success !');
         };
     }
 

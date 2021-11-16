@@ -26,7 +26,7 @@ Route::get('/shop', function() {
     return view('components.frontend.shop');
 })->name('shop');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 
 Route::prefix('admin')->name('admin.')->group(function() {
@@ -35,6 +35,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::post('login',[LoginController::class, 'login'])->name('auth.login')->middleware('guest');
     Route::post('logout',[LoginController::class, 'logout'])->name('auth.logout')->middleware('auth');
     // Resource Controller
-    Route::resource('categories', CategoryController::class);
-    Route::resource('products', ProductController::class);
+    Route::resource('categories', CategoryController::class)->middleware('auth');
+    Route::resource('products', ProductController::class)->middleware('auth');
 });

@@ -37,32 +37,34 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($products as $product)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">
-                                    {{$product->name}}
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">{{$product->slug}}</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                    {{$product->category->name}}
-                                    </span>
-                                </td>
-                                </td>
-                                <td class="flex align-middle px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-4">
-                                    <x-form.link href="{{route('admin.products.edit', $product->id)}}" :btn="'warning'">Edit</x-form.link>
-                                    <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="uppercase inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-xs font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
+                            @isset($products)
+                                @foreach ($products as $product)
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">
+                                        {{$product->name}}
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">{{$product->slug}}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        {{$product->category->name}}
+                                        </span>
+                                    </td>
+                                    </td>
+                                    <td class="flex align-middle px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-4">
+                                        <x-form.link href="{{route('admin.products.edit', $product->id)}}" :btn="'warning'">Edit</x-form.link>
+                                        <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="uppercase inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-xs font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endisset
                         </tbody>
                     </table>
                 </div>
